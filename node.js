@@ -34,14 +34,12 @@ var Node = function(title, text) {
 	}
 
 	this.hasConnectionCondition = function(condition){
-		for (var i = 0; i < this.connections.length; i++){
-			if(this.connections[i].condition === condition){
-				 return true;
-			}
+		if(this.route(condition) !== undefined){
+			return true;
+		}else{
+			return false;
 		}
-		return false;
 	}
-	
 };
 
 module.exports = Node;
